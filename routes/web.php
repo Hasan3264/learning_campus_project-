@@ -7,6 +7,7 @@ use App\Http\Controllers\backend\student_module\StudentController;
 use App\Http\Controllers\backend\finance_reports_module\FinanceReportsController;
 use App\Http\Controllers\backend\payroll_module\{PayrollHeadController, EmployeePayscaleController, EmployeesSalaryChartController, EmployeesSalaryController};
 use App\Http\Controllers\Hrmodule\HrmoduleController;
+use App\Http\Controllers\backend\hr_module\{EmployeetypeController, DesignationController, WorkingShiftController, EmployeeController};
 use App\Http\Controllers\ExamSetting\ExamsettingController;
 
 
@@ -154,28 +155,34 @@ Route::middleware('auth')->controller(AllsessionAcademicController::class)->pref
 
 // All MEDIUM ACADDEMIC
 
-Route::middleware('auth')->controller(HrmoduleController::class)->prefix('/hrmodule')->group(function () {
-    Route::get('/employetype', 'AllEmployetype')->name('employetype');
-    Route::get('/addemployetype', 'AddEmployetype')->name('addemployetype');
 
+// HR Module Routes 
 
-    // DESIGNATION IN HR module
-    Route::get('/alldesignation', 'AllDesignation')->name('alldesignation');
-    Route::get('/adddesignation', 'AddDesignation')->name('adddesignation');
-
-
-    // WORKINGSHIFT IN HR module
-    Route::get('/allworkingshift', 'Allworkingshift')->name('allworkingshift');
-    Route::get('/addworkingshift', 'Addworkingshift')->name('addworkingshift');
-
-
-    // AddEmployeSidebar IN HR module
-    Route::get('/newemployeadd', 'AddEmployeSidebar')->name('newemployeadd');
-    Route::get('/manageemploye', 'ManageEmploye')->name('manageemploye');
-    Route::get('/employesearch', 'EmployeSearch')->name('employesearch');
-    Route::get('/employeidcard', 'EmployeIDcardSearch')->name('employeidcard');
-    Route::get('/employeattendance', 'EmployeAttendance')->name('employeattendance');
+Route::middleware('auth')->controller(EmployeetypeController::class)->prefix('/hr')->group(function () {
+    Route::get('/employeetype', 'allEmployeetype')->name('employeetype');
+    Route::get('/add-employeetype', 'addEmployeetype')->name('add.employeetype');
+    Route::get('/show-employeetype', 'showEmployeetype')->name('show.employeetype');
+    Route::get('/edit-employeetype', 'editEmployeetype')->name('edit.employeetype');
 });
+Route::middleware('auth')->controller(DesignationController::class)->prefix('/hr')->group(function () {
+    Route::get('/designation', 'allDesignation')->name('designations');
+    Route::get('/add-designation', 'addDesignation')->name('add.designation');
+    Route::get('/show-designation', 'showDesignation')->name('show.designation');
+    Route::get('/edit-designation', 'editDesignation')->name('edit.designation');
+});
+Route::middleware('auth')->controller(WorkingShiftController::class)->prefix('/hr')->group(function () {
+    Route::get('/working-shift', 'allWorkingShifts')->name('workingshifts');
+    Route::get('/add-working-shift', 'addWorkingShift')->name('add.workingshift');
+    Route::get('/show-working-shift', 'showWorkingShift')->name('show.workingshift');
+    Route::get('/edit-working-shift', 'editWorkingShift')->name('edit.workingshift');
+});
+Route::middleware('auth')->controller(EmployeeController::class)->prefix('/hr')->group(function () {
+    Route::get('/employees', 'allEmployees')->name('all.employees');
+    Route::get('/add-employee', 'addEmployee')->name('add.employee');
+    Route::get('/show-employee', 'showEmployee')->name('show.employee');
+    Route::get('/edit-employee', 'editEmployee')->name('edit.employee');
+});
+
 
 Route::middleware('auth')->controller(ExamsettingController::class)->prefix('/exam')->group(function () {
 
@@ -237,3 +244,4 @@ require __DIR__ . '/student_account.php';
 require __DIR__ . '/learning_module.php';
 require __DIR__ . '/finance_module.php';
 require __DIR__ . '/student_account.php';
+require __DIR__ . '/website_module.php';
