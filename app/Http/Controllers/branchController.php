@@ -100,7 +100,11 @@ class branchController extends Controller
         ]);
          return back()->with('success', 'Updated Successfully!');
     }
-    public  function branch_delete(Request $request){   
+    public  function branch_delete(Request $request){
+         $branch_id = $request->del_id;
+        $auth_signatures = branchdetails::findOrFail($branch_id);
+        $delete_from = public_path('/uploads/backend/auth_signature/' . $auth_signatures->auth_signature);
+        unlink($delete_from);
         branchdetails::findOrFail($request->del_id)->delete();
         return response()->json(['success' => 'Deleted Successfully!', 'tr'=> 'tr_'.$request->del_id]);
     }

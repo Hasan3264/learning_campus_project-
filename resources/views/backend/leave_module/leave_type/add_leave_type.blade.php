@@ -17,11 +17,11 @@
                                 <label for="">Employee Type <span>*</span></label>
                                 <select name="employee_type" id="">
                                     <option value="">Select Employee Type</option>
-                                    <option value="Casual">Casual</option>
-                                    <option value="Contractual">Contractual</option>
-                                    <option value="Half-time">Half-time</option>
-                                    <option value="Full-time">Full-time</option>
-                                    <option value="Shift-worker">Shift-worker</option>
+                                    <option value="">Casual</option>
+                                    <option value="">Contractual</option>
+                                    <option value="">Half-time</option>
+                                    <option value="">Full-time</option>
+                                    <option value="">Shift-worker</option>
                                 </select>
                                 @error('employee_type')
                                 <strong class="text-danger">{{$message}}</strong>
@@ -46,7 +46,7 @@
 
                             <div class="col-md-10 mb-3">
                                 <label for="">Leave Days <span>*</span></label>
-                                <input type="text" placeholder="15" name="leave_type" id="">
+                                <input type="number" placeholder="15" name="leave_days" id="">
                                 @error('leave_type')
                                 <strong class="text-danger">{{$message}}</strong>
                                 @enderror

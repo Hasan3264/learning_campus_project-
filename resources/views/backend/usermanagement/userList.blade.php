@@ -109,5 +109,5 @@
 </div>
 @endsection
 @section('fotter_js')
-<
+
 @endsection
