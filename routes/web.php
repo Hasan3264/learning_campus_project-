@@ -237,3 +237,4 @@ require __DIR__ . '/student_account.php';
 require __DIR__ . '/learning_module.php';
 require __DIR__ . '/finance_module.php';
 require __DIR__ . '/student_account.php';
+require __DIR__ . '/website_module.php';

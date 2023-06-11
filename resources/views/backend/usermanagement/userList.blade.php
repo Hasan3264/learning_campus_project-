@@ -11,6 +11,7 @@
             <div class="card-body table-responsive" id="institue">
                 <form action="" class="es-form es-add-form">
                     <a href="{{route('user.add')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
+                    <a href="{{route('role.index')}}" class="btn btn-primary">Role Management</i></a>
 
                     <p class="text-right">Showing 1-1 of 1 item</p>
                     <!---- slide show table  ----->
@@ -74,7 +75,7 @@
                                     <p>No branch details available</p>
                                     @endif
                                 </td>
-                                <td>{{$list->user_type}}</td>
+                                <td>{{$list->user_typ}}</td>
                                 <td>@if ($list->relation_user)
                                     <p>{{ $list->relation_user->name }}</p>
                                     @else
@@ -88,7 +89,7 @@
                                             class="fa-solid fa-eye"></i></a>&nbsp; &nbsp;
                                     <a href="{{route('user.edit', $list->id)}}"><i
                                             class="fa-solid fa-pencil"></i></a>&nbsp; &nbsp;
-                                    <a class="deleteRecord cursor-pointer" data-id="{{ $list->id }}"><i
+                                  <a href="{{route('user.delete',$list->relation_user->id)}}"><i
                                             class="fa-solid fa-trash"></i></a>&nbsp; &nbsp;
                                 </td>
                             </tr>
@@ -106,4 +107,7 @@
     </section>
 
 </div>
+@endsection
+@section('fotter_js')
+<
 @endsection

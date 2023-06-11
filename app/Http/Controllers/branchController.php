@@ -100,7 +100,7 @@ class branchController extends Controller
         ]);
          return back()->with('success', 'Updated Successfully!');
     }
-    public  function branch_delete(Request $request){
+    public  function branch_delete(Request $request){   
         branchdetails::findOrFail($request->del_id)->delete();
         return response()->json(['success' => 'Deleted Successfully!', 'tr'=> 'tr_'.$request->del_id]);
     }

@@ -15,10 +15,9 @@
 
         <div class="card-body table-responsive" id="institue">
             <form action="" class="es-form es-add-form">
-                <a href="{{route('add_leave_type')}}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a>
-               <p class="text-right">Showing 1-1 of 1 item</p>
+                <a href="{{route('add_leave_type')}}" class="btn btn-primary mb-4"><i class="fa-solid fa-plus"></i></a>
                 <!---- session table  ----->
-                    <table class="table table-bordered mt-3 text-center">
+                    <table id="myTable" class="table table-bordered mt-3 text-center">
                         <thead class="table-bordered">
                             <tr>
                                 <th scope="col">Srl</th>
@@ -30,34 +29,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
-                            <tr>
-                                <th scope="row"></th>
-                                <td>
-                                    <select name="" id="">
-                                        <option value="">All</option>
-                                        <option value="">Full-time</option>
-                                        <option value="">Half-time</option>
-                                        <option value="">Casual</option>
-                                        <option value="">Parmanant</option>
-                                        <option value="">Fixed-term</option>
-                                        <option value="">Shift-worker</option>
-                                        <option value="">Outworkers</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="text" name="" id="">
-                                </td>
-                                <td>
-                                    <input type="text" name="" id="">
-                                </td>
-                                <td>
-                                    <input type="text" name="" id="">
-                                </td>
-
-                                <td></td>
-                            </tr>
-
                             <tr>
                                 <td>1</td>
                                 <td>Permanent</td>
@@ -72,7 +43,7 @@
                             </tr>
 
                             <tr>
-                                <td>1</td>
+                                <td>2</td>
                                 <td>Permanent</td>
                                 <td>Maternity/Paternity Leave</td>
                                 <td>MPL</td>
@@ -85,7 +56,7 @@
                             </tr>
 
                             <tr>
-                                <td>1</td>
+                                <td>3</td>
                                 <td>Permanent</td>
                                 <td>Maternity/Paternity Leave</td>
                                 <td>MPL</td>
@@ -98,7 +69,7 @@
                             </tr>
 
                             <tr>
-                                <td>1</td>
+                                <td>4</td>
                                 <td>Permanent</td>
                                 <td>Maternity/Paternity Leave</td>
                                 <td>MPL</td>
@@ -111,7 +82,7 @@
                             </tr>
 
                             <tr>
-                                <td>1</td>
+                                <td>5</td>
                                 <td>Permanent</td>
                                 <td>Maternity/Paternity Leave</td>
                                 <td>MPL</td>
@@ -138,4 +109,27 @@
     </div>
 </div>
 
+@endsection
+
+@section('fotter_js')
+<script>
+    $(document).ready(function(){
+          $('#myTable').DataTable({
+              columnDefs: [
+            {
+                targets: [0],
+                orderData: [0, 1],
+            },
+            {
+                targets: [1],
+                orderData: [1, 0],
+            },
+            {
+                targets: [4],
+                orderData: [4, 0],
+            },
+        ],
+          });
+    });
+</script>
 @endsection
