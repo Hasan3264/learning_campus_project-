@@ -19,11 +19,12 @@
                                 <option value="part time">Part-time</option>
                                 <option value="half time">Half-time</option>
                                 <option value="contractual">Contractual</option>
-                                <option value="shiftworker">Shiftworker</option>
+                                <option value="shift worker">Shiftworker</option>
                             </select>
                             @error('type')
                             <span class="text-red-500 text-sm">{{$message}}</span>
                             @enderror
+<span style="float:right;"><a class="btn btn-success" href="{{route('create.type')}}">Add Type</a></span>
                         </div>
 
                         <div class="col-md-10 mb-3">

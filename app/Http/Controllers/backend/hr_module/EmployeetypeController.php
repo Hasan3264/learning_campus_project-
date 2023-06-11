@@ -11,6 +11,10 @@ class EmployeetypeController extends Controller
 {
     public function allEmployeetype()
     {
+$emptypes = EmployeeType::all();
+// if($emptypes->deduct_salary == 1){
+// $emptypes->deduct_salary = "Yes";
+// }else
         return view('backend.hr_module.employee_type.employee_type');
     }
     public function addEmployeetype()
