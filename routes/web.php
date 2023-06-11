@@ -161,6 +161,7 @@ Route::middleware('auth')->controller(AllsessionAcademicController::class)->pref
 Route::middleware('auth')->controller(EmployeetypeController::class)->prefix('/hr')->group(function () {
     Route::get('/employeetype', 'allEmployeetype')->name('employeetype');
     Route::get('/add-employeetype', 'addEmployeetype')->name('add.employeetype');
+    Route::post('/store-employeetype', 'storeEmployeetype')->name('store.employeetype');
     Route::get('/show-employeetype', 'showEmployeetype')->name('show.employeetype');
     Route::get('/edit-employeetype', 'editEmployeetype')->name('edit.employeetype');
 });
@@ -181,6 +182,9 @@ Route::middleware('auth')->controller(EmployeeController::class)->prefix('/hr')-
     Route::get('/add-employee', 'addEmployee')->name('add.employee');
     Route::get('/show-employee', 'showEmployee')->name('show.employee');
     Route::get('/edit-employee', 'editEmployee')->name('edit.employee');
+    Route::get('/search-employee', 'searchEmployee')->name('search.employee');
+    Route::get('/employee-id', 'employeeID')->name('id.employee');  
+    Route::get('/export-employee', 'exportEmployee')->name('export.employee');
 });
 
 

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
-        public function allEmployees()
+    public function allEmployees()
     {
         return view('backend.hr_module.employee.all_employees');
     }
@@ -22,5 +22,17 @@ class EmployeeController extends Controller
     public function editEmployee()
     {
         return view('backend.hr_module.employee.employee_edit');
+    }
+    public function searchEmployee()
+    {
+        return view('backend.hr_module.employee.employee_search');
+    }
+    public function employeeID()
+    {
+        return view('backend.hr_module.employee.employee_id_card');
+    }
+    public function exportEmployee()
+    {
+        return view('backend.hr_module.employee.employee_export');
     }
 }

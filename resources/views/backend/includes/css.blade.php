@@ -28,6 +28,7 @@
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
 
  <link rel="stylesheet" href="{{ asset('AdminAssets/css/main.css') }}">
+
  <script src="{{ asset('AdminAssets/js/main2.js') }}"></script>
  <script>
     document.addEventListener('DOMContentLoaded', function() {

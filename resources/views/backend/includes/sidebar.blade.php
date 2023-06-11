@@ -349,17 +349,17 @@
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('search.employee') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's Search</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('search.employee') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's ID Card</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('export.employee') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's Export(Att.)</span>
                                     </a>
                                 </li>
