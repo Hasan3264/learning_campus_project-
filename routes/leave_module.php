@@ -11,11 +11,14 @@ Route::middleware('auth')->controller(LeaveController::class)->prefix('/leave')-
 
     //////////////////////// Start Leave Type////////////////
 
+
+
+
  Route::get('/type','LeaveType')->name('leave_type');
 
  Route::get('/type/add','AddLeaveType')->name('add_leave_type');
 
- Route::get('/type/store','StoreLeaveType')->name('store_leave_type');
+ Route::post('/type/store','StoreLeaveType')->name('store_leave_type');
 
  Route::get('/type/edit','EditLeaveType')->name('edit_leave_type');
 

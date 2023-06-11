@@ -458,17 +458,22 @@ img.u-avatar--xs {
 }
 
 .es-form input {
-	width: 100%;
-	border: none !important;
-	color: #130041;
-	font-size: 18px;
-	padding-left: 20px;
-	padding-right: 20px;
-	height: 50px;
-	line-height: 46px;
-	padding-top: 0;
-	padding-bottom: 0;
-	background: #80808012;
+    width: 100%;
+    border: 1px solid #ccc;
+    color: #130041;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 50px;
+    line-height: 46px;
+    padding-top: 0;
+    padding-bottom: 0;
+    background: #80808012;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
 }
 
 .nice-select.open .list {
@@ -1572,7 +1577,7 @@ label span {
 	width: 160px;
 	padding: 11px 8px !important;
 	border-radius: 4px !important;
-	border: none !important;
+	border: 1px solid #ccc !important;
 	background-color: #8080801f;
 }
 

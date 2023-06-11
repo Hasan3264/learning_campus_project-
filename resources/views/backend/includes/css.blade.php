@@ -6,6 +6,9 @@
 <meta name="keywords" content="Bootstrap Theme, Freebies, Dashboard, MIT license">
 <meta name="description" content="Learning Campus">
 <meta name="author" content="Learningcampus.com">
+<!-- data table -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
+<!-- data table -->
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="Logo _ Icon/preload2.png" sizes="96x96" type="image/x-icon">

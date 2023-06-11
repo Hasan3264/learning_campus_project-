@@ -64,6 +64,9 @@
     <script src="{{asset('AdminAssets/vendor/chart.js/dist/Chart.min.js')}}"></script>
     <script src="{{asset('AdminAssets/js/jquery.nice-select.min.js')}}"></script>
     <script src="{{asset('AdminAssets/js/jquery-ui.min.js')}}"></script>
+    <!-- data table -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
+    <!-- data table -->
     <!-- Initialization  -->
     <script src="{{asset('AdminAssets/js/sidebar-nav.js')}}"></script>
     <script src="{{asset('AdminAssets/js/main.js')}}"></script>
@@ -105,6 +108,7 @@
  }
  @endif
 </script>
+
 
 <script>
     $("#files").on("change",function(){

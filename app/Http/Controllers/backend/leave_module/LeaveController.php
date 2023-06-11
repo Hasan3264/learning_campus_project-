@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\backend\leave_module;
 
 use App\Http\Controllers\Controller;
+use App\Models\leaveType;
 use Illuminate\Http\Request;
 
 class LeaveController extends Controller
@@ -17,10 +18,24 @@ class LeaveController extends Controller
 
        return view('backend.leave_module.leave_type.add_leave_type');
     }//end method
-
-    public function StoreLeaveType(){
-
-
+            protected $rules = [
+                'employee_type' => ['required'],
+                'title' => ['required'],
+                'short_title' => ['required'],
+                'leave_type' => ['required'],
+                'status' => ['required'],
+            ];
+         public function StoreLeaveType(Request $request){
+         $this->validate($request, $this->rules);
+              return $request->all();
+             leaveType::insert([
+                 'employee_type' => $request->employeeType,
+                 'title' => $request->title,
+                 'short_title' => $request->short_title,
+                 'leave_type' => $request->leave_type,
+                 'status' => $request->status,
+            ]);
+            return redirect(route('store_leave_type'))->with('success', 'Added Successfully!');
     }//end method
 
     public function EditLeaveType(){

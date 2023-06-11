@@ -22,7 +22,7 @@
                         <tbody>
                             <tr>
                                 <th>User Type</th>
-                                <td>{{$findId->user_type}}</td>
+                                <td>{{$findId->user_typ}}</td>
                             </tr>
                             <tr>
                                 <th>Username</th>
