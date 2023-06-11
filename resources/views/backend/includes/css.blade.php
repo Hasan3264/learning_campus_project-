@@ -6,9 +6,6 @@
 <meta name="keywords" content="Bootstrap Theme, Freebies, Dashboard, MIT license">
 <meta name="description" content="Learning Campus">
 <meta name="author" content="Learningcampus.com">
-<!-- data table -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
-<!-- data table -->
 
 <!-- Favicon -->
 <link rel="shortcut icon" href="Logo _ Icon/preload2.png" sizes="96x96" type="image/x-icon">
@@ -26,24 +23,23 @@
 
 <!-- Toster -->
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-
+<<<<<<< HEAD
 <!-- Toster -->
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
-
+=======
  <link rel="stylesheet" href="{{ asset('AdminAssets/css/main.css') }}">
-
  <script src="{{ asset('AdminAssets/js/main2.js') }}"></script>
  <script>
     document.addEventListener('DOMContentLoaded', function() {
       var calendarEl = document.getElementById('calendar');
-
+  
       var calendar = new FullCalendar.Calendar(calendarEl, {
         headerToolbar: {
           left: 'prev,next today',
           center: 'title',
           right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
         },
-        initialDate: new Date().toISOString().slice(0, 10),
+        initialDate: new Date().toISOString().slice(0, 10), 
         navLinks: true, // can click day/week names to navigate views
         businessHours: true, // display business hours
         editable: true,
@@ -69,7 +65,7 @@
             title: 'Party',
             start: '2020-09-29T20:00:00'
           },
-
+  
           // areas where "Meeting" must be dropped
           {
             groupId: 'availableForMeeting',
@@ -83,7 +79,7 @@
             end: '2020-09-13T16:00:00',
             display: 'background'
           },
-
+  
           // red areas where no events can be dropped
           {
             start: '2020-09-24',
@@ -101,8 +97,9 @@
           }
         ]
       });
-
+  
       calendar.render();
     });
-
+  
   </script>
+>>>>>>> 794520b6a031158521ea0bf582bf9423919c8260

@@ -3,71 +3,43 @@
 namespace App\Http\Controllers\backend\leave_module;
 
 use App\Http\Controllers\Controller;
-use App\Models\leaveType;
 use Illuminate\Http\Request;
 
 class LeaveController extends Controller
 {
     //////////////////////// Start Leave Type////////////////
     public function LeaveType(){
-       $leaveTypes = leaveType::all();
-        return view('backend.leave_module.leave_type.leave_type',[
-            'leaveTypes' => $leaveTypes,
-        ]);
+
+        return view('backend.leave_module.leave_type.leave_type');
     } //end method
 
     public function AddLeaveType(){
 
        return view('backend.leave_module.leave_type.add_leave_type');
     }//end method
-            protected $rules = [
-                'employee_type' => ['required'],
-                'title' => ['required'],
-                'short_title' => ['required'],
-                'leave_days' => ['required'],
-                'status' => ['required'],
-            ];
-         public function StoreLeaveType(Request $request){
-         $this->validate($request, $this->rules);
-             leaveType::insert([
-                 'employee_type' => $request->employeeType,
-                 'title' => $request->title,
-                 'short_title' => $request->short_title,
-                 'leave_days' => $request->leave_days,
-                 'status' => $request->status,
-            ]);
-            return redirect(route('leave_type'))->with('success', 'Added Successfully!');
+
+    public function StoreLeaveType(){
+
+
     }//end method
 
-    public function EditLeaveType($id){
-        $findId = leaveType::findOrFail($id);
-        return view('backend.leave_module.leave_type.leave_type_edit',[
-            'findId' => $findId,
-        ]);
+    public function EditLeaveType(){
+
+       return view('backend.leave_module.leave_type.leave_type_edit');
     }//end method
 
-    public function UpdateLeaveType(Request $request){
-     $this->validate($request, $this->rules);
-      leaveType::findOrFail($request->leave_id)->update([
-                 'employee_type' => $request->employeeType,
-                 'title' => $request->title,
-                 'short_title' => $request->short_title,
-                 'leave_days' => $request->leave_days,
-                 'status' => $request->status,
-      ]);
-      return redirect(route('leave_type'))->with('success', 'Added Successfully!');
+    public function UpdateLeaveType(){
+
+
     }//end method
 
-    public function ViewLeaveType($id){
-        $findId = leaveType::findOrFail($id);
-       return view('backend.leave_module.leave_type.leave_type_view',[
-        'findId' => $findId,
-       ]);
+    public function ViewLeaveType(){
+
+       return view('backend.leave_module.leave_type.leave_type_view');
     }//end method
 
-    public function DeleteLeaveType(Request $request){
-        leaveType::findOrFail($request->del_id)->delete();
-        return response()->json(['success' => 'Deleted Successfully!', 'tr'=> 'tr_'.$request->del_id]);
+    public function DeleteLeaveType(){
+
 
     }//end method
 

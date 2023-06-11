@@ -12,12 +12,17 @@
                     <div class="row">
                         <div class="col-lg-8 offset-lg-2 col-md-12 mb-4">
                             <label for="subject">User Type <span>*</span></label>
-                            <select id="subject" name="role_id" class="es-add-select">
+                            <select id="subject" name="subject" class="es-add-select">
                                 <option value="">Select User Type</option>
-                                @foreach ($roles as  $role)
-                                <option value="{{$role->id}}">{{$role->name}}</option>
-                                 @endforeach
+                                <option value="Accountant">Accountant</option>
+                                <option value="Admin">Admin</option>
+                                <option value="Data_Entry_Operator">Data Entry Operator</option>
+                                <option value="Human_Resource">Human Resource</option>
+                                <option value="Student">Student</option>
+                                <option value="Teacher">Teacher</option>
                             </select>
+
+
                             <label for="branch">Branch <span>*</span></label>
                             <select id="branch" name="branch" class="es-add-select">
                                 <option value="">Select Branch</option>
@@ -66,7 +71,7 @@
                     </div>
                     <p>
                         <button type="button" id="SubmitButton" onclick="subinsert()" class="btn bg-gradient border-0 text-white">Create</button>
-                        <button type="reset" class="btn  border-0 bg-danger text-white">Reset</button>
+                        <button type="reset" class="btn  border-0 bg-danger text-white">Cancel</button>
                     </p>
 
                 </form>

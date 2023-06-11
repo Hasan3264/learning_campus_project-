@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('branch_id');
+            $table->string('user_type');
             $table->timestamps();
         });
     }

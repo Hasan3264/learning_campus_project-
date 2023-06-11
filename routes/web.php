@@ -1,14 +1,18 @@
 <?php
 
+
+
 use App\Http\Controllers\backend\routine\RoutineController;
 use App\Http\Controllers\{ProfileController, InstituteController, branchController, AcademicHolidayController};
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Academic\AllsessionAcademicController;
 use App\Http\Controllers\backend\student_module\StudentController;
 use App\Http\Controllers\backend\finance_reports_module\FinanceReportsController;
+use App\Models\AcademicHoliday;
 use App\Http\Controllers\backend\payroll_module\{PayrollHeadController, EmployeePayscaleController, EmployeesSalaryChartController, EmployeesSalaryController};
+
 use App\Http\Controllers\Hrmodule\HrmoduleController;
-use App\Http\Controllers\backend\hr_module\{EmployeetypeController, DesignationController, WorkingShiftController, EmployeeController, TypeController};
 use App\Http\Controllers\ExamSetting\ExamsettingController;
 
 
@@ -33,8 +37,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/hr/create-type', [TypeController::class, 'createType'])->name('create.type');
-    Route::post('/hr/store-type', [TypeController::class, 'storeType'])->name('store.type');
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
@@ -43,8 +46,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/Ganarel/input', [InstituteController::class, 'ganarel_input'])->name('ganarel.input');
 
 
+    Route::get('/index', [branchController::class, 'index'])->name('branch.index');
+    Route::get('/branch/add', [branchController::class, 'add'])->name('branch.add');
+    Route::post('/branch/input', [branchController::class, 'input_branch'])->name('branch.input');
+    Route::get('/branch/show/{id}', [branchController::class, 'show_branece'])->name('branch.show');
+    Route::get('/branch/edit/{id}', [branchController::class, 'edit_branece'])->name('branch.edit');
+    Route::post('/branch/edit', [branchController::class, 'edit_push'])->name('branch.editpush');
+    Route::post('/branchdelete', [branchController::class, 'branch_delete']);
 
+   });
 
+    // Academic Holidays routes
 
     Route::get('/academic-holiday', [AcademicHolidayController::class, 'index'])->name('academic-holiday.index');
     Route::get('/academic-holiday/create', [AcademicHolidayController::class, 'createForm'])->name('academic-holiday.create');
@@ -53,18 +65,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/academic-holiday/{id}/edit', [AcademicHolidayController::class, 'editForm'])->name('academic-holiday.edit');
     Route::post('/academic-holiday/{id}/update', [AcademicHolidayController::class, 'update'])->name('academic-holiday.update');
     Route::get('/academic-holiday/{id}/delete', [AcademicHolidayController::class, 'delete'])->name('academic-holiday.delete');
-    //    Routine
-    Route::get('/r.index', [RoutineController::class, 'index'])->name('r.index');
-    Route::get('/r.dynamic', [RoutineController::class, 'dynamic'])->name('r.dynamic');
-    Route::get('/r.print', [RoutineController::class, 'printindex'])->name('r.print');
+//    Routine
+    Route::get('/r.index',[RoutineController::class,'index'])->name('r.index');
+    Route::get('/r.dynamic',[RoutineController::class,'dynamic'])->name('r.dynamic');
+    Route::get('/r.print',[RoutineController::class,'printindex'])->name('r.print');
     // Students module routes
 
     Route::get('/students/add-students', [StudentController::class, "addForm"])->name("students.add");
     Route::get('/students/print-admission-form', [StudentController::class, "printForm"])->name('students.print-admission-form');
     Route::get('/students/current-students', [StudentController::class, "currentStudentList"])->name('students.current-students');
 
-
-    //Routine
+       //Routine
 
 
     Route::get('/students/archive-students', [StudentController::class, "archiveStudentList"])->name('students.archive-students');
@@ -75,48 +86,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/students/print-student-id', [StudentController::class, 'printStudentId'])->name('students.print-student-id');
     Route::get('/students/student-biometric-export', [StudentController::class, 'biometricExport'])->name('students.biometric-export');
     Route::get('/students/print-student-testimonial', [StudentController::class, 'printStudentTesimonial'])->name('students.print-student-testimonial');
-
-    // Payroll Module routes
-
-
-    Route::get('/payroll/head', [PayrollHeadController::class, 'index'])->name('payroll-head.index');
-    Route::get('/payroll/head/view', [PayrollHeadController::class, 'show'])->name('payroll-head.view');
-    Route::get('/payroll/head/add', [PayrollHeadController::class, 'add'])->name('payroll-head.add');
-    Route::get('/payroll/head/edit', [PayrollHeadController::class, 'edit'])->name('payroll-head.edit');
-
-    Route::get('/employee/payscale', [EmployeePayscaleController::class, 'index'])->name('employee-payscale.index');
-    Route::get('/employee/payscale/view', [EmployeePayscaleController::class, 'show'])->name('employee-payscale.view');
-    Route::get('/employee/payscale/add', [EmployeePayscaleController::class, 'add'])->name('employee-payscale.add');
-    Route::get('/employee/payscale/edit', [EmployeePayscaleController::class, 'edit'])->name('employee-payscale.edit');
-
-    Route::get('/employee/salary/chart', [EmployeesSalaryChartController::class, 'index'])->name('employee-salary.index');
-    Route::get('/employee/salary/view', [EmployeesSalaryChartController::class, 'show'])->name('employee-salary.view');
-    Route::get('/employee/salary/add', [EmployeesSalaryChartController::class, 'add'])->name('employee-salary.add');
-    Route::get('/employee/salary/edit', [EmployeesSalaryChartController::class, 'edit'])->name('employee-salary.edit');
-
-    Route::get('/employee/salary-sheet/generate', [EmployeesSalaryController::class, 'generateSheet'])->name('employee.salary-sheet.generate');
-    Route::get('/employee/salary-report', [EmployeesSalaryController::class, 'report'])->name('employee.salary.report');
-    Route::get('/employee/salary-payment', [EmployeesSalaryController::class, 'payment'])->name('employee.salary.payment');
-    Route::get('/employee/payslip/print', [EmployeesSalaryController::class, 'payslipPrint'])->name('employee.payslip.print');
-
-    // Financial Reports Routes
-
-    Route::get('/finance-reports/daily-collection', [FinanceReportsController::class, 'dailyCollection'])->name('finance-reports.daily-collection');
-    Route::get('/finance-reports/fees-collection', [FinanceReportsController::class, 'feesCollection'])->name('finance-reports.fees-collection');
-    Route::get('/finance-reports/students-dues', [FinanceReportsController::class, 'studentsDues'])->name('finance-reports.students-dues');
-    Route::get('/finance-reports/students-ledger', [FinanceReportsController::class, 'studentsLedger'])->name('finance-reports.students-ledger');
-    Route::get('/finance-reports/students-waiver-report', [FinanceReportsController::class, 'studentsWaiverReport'])->name('finance-reports.students-waiver-report');
-    Route::get('/finance-reports/accounts-ledger', [FinanceReportsController::class, 'accountsLedger'])->name('finance-reports.accounts-ledger');
-    Route::get('/finance-reports/trial-balance', [FinanceReportsController::class, 'trialBalance'])->name('finance-reports.trial-balance');
-    Route::get('/finance-reports/cash-book', [FinanceReportsController::class, 'cashBook'])->name('finance-reports.cash-book');
-    Route::get('/finance-reports/bank-book', [FinanceReportsController::class, 'bankBook'])->name('finance-reports.bank-book');
-    Route::get('/finance-reports/balance-sheet', [FinanceReportsController::class, 'balanceSheet'])->name('finance-reports.balance-sheet');
-    Route::get('/finance-reports/payable-receivable', [FinanceReportsController::class, 'payableReceivable'])->name('finance-reports.payable-receivable');
-});
-
-// Academic Holidays routes
-
-Route::middleware('auth')->controller(branchController::class)->group(function () {
+//Branch Controller
+Route::controller(branchController::class)->group(function () {
     Route::get('/index', 'index')->name('branch.index');
     Route::get('/branch/add', 'add')->name('branch.add');
     Route::post('/branch/input', 'input_branch')->name('branch.input');
@@ -125,6 +96,43 @@ Route::middleware('auth')->controller(branchController::class)->group(function (
     Route::post('/branch/edit', 'edit_push')->name('branch.editpush');
     Route::post('/branchdelete', 'branch_delete');
 });
+// Payroll Module routes
+
+Route::get('/payroll/head', [PayrollHeadController::class, 'index'])->name('payroll-head.index');
+Route::get('/payroll/head/view', [PayrollHeadController::class, 'show'])->name('payroll-head.view');
+Route::get('/payroll/head/add', [PayrollHeadController::class, 'add'])->name('payroll-head.add');
+Route::get('/payroll/head/edit', [PayrollHeadController::class, 'edit'])->name('payroll-head.edit');
+
+Route::get('/employee/payscale', [EmployeePayscaleController::class, 'index'])->name('employee-payscale.index');
+Route::get('/employee/payscale/view', [EmployeePayscaleController::class, 'show'])->name('employee-payscale.view');
+Route::get('/employee/payscale/add', [EmployeePayscaleController::class, 'add'])->name('employee-payscale.add');
+Route::get('/employee/payscale/edit', [EmployeePayscaleController::class, 'edit'])->name('employee-payscale.edit');
+
+Route::get('/employee/salary/chart', [EmployeesSalaryChartController::class, 'index'])->name('employee-salary.index');
+Route::get('/employee/salary/view', [EmployeesSalaryChartController::class, 'show'])->name('employee-salary.view');
+Route::get('/employee/salary/add', [EmployeesSalaryChartController::class, 'add'])->name('employee-salary.add');
+Route::get('/employee/salary/edit', [EmployeesSalaryChartController::class, 'edit'])->name('employee-salary.edit');
+
+Route::get('/employee/salary-sheet/generate', [EmployeesSalaryController::class, 'generateSheet'])->name('employee.salary-sheet.generate');
+Route::get('/employee/salary-report', [EmployeesSalaryController::class, 'report'])->name('employee.salary.report');
+Route::get('/employee/salary-payment', [EmployeesSalaryController::class, 'payment'])->name('employee.salary.payment');
+Route::get('/employee/payslip/print', [EmployeesSalaryController::class, 'payslipPrint'])->name('employee.payslip.print');
+
+// Financial Reports Routes
+
+Route::get('/finance-reports/daily-collection', [FinanceReportsController::class, 'dailyCollection'])->name('finance-reports.daily-collection');
+Route::get('/finance-reports/fees-collection', [FinanceReportsController::class, 'feesCollection'])->name('finance-reports.fees-collection');
+Route::get('/finance-reports/students-dues', [FinanceReportsController::class, 'studentsDues'])->name('finance-reports.students-dues');
+Route::get('/finance-reports/students-ledger', [FinanceReportsController::class, 'studentsLedger'])->name('finance-reports.students-ledger');
+Route::get('/finance-reports/students-waiver-report', [FinanceReportsController::class, 'studentsWaiverReport'])->name('finance-reports.students-waiver-report');
+Route::get('/finance-reports/accounts-ledger', [FinanceReportsController::class, 'accountsLedger'])->name('finance-reports.accounts-ledger');
+Route::get('/finance-reports/trial-balance', [FinanceReportsController::class, 'trialBalance'])->name('finance-reports.trial-balance');
+Route::get('/finance-reports/cash-book', [FinanceReportsController::class, 'cashBook'])->name('finance-reports.cash-book');
+Route::get('/finance-reports/bank-book', [FinanceReportsController::class, 'bankBook'])->name('finance-reports.bank-book');
+Route::get('/finance-reports/balance-sheet', [FinanceReportsController::class, 'balanceSheet'])->name('finance-reports.balance-sheet');
+Route::get('/finance-reports/payable-receivable', [FinanceReportsController::class, 'payableReceivable'])->name('finance-reports.payable-receivable');
+
+
 
 // All SESSION ACADDEMIC
 
@@ -150,49 +158,45 @@ Route::middleware('auth')->controller(AllsessionAcademicController::class)->pref
 
 // ACADEMIC CALENDER
 
-Route::middleware('auth')->controller(AllsessionAcademicController::class)->prefix('/academic')->group(function () {
-    Route::get('/calender', 'AcademicCalender')->name('academiccalander');
+Route::controller(AllsessionAcademicController::class)->prefix('/academic')->group(function(){
+    Route::get('/calender','AcademicCalender')->name('academiccalander');
 });
 
 // All MEDIUM ACADDEMIC
 
+Route::controller(HrmoduleController::class)->prefix('/hrmodule')->group(function () {
+    Route::get('/employetype', 'AllEmployetype')->name('employetype');
+    Route::get('/addemployetype', 'AddEmployetype')->name('addemployetype');
 
-// HR Module Routes 
 
-Route::middleware('auth')->controller(EmployeetypeController::class)->prefix('/hr')->group(function () {
-    Route::get('/employeetype', 'allEmployeetype')->name('employeetype');
-    Route::get('/add-employeetype', 'addEmployeetype')->name('add.employeetype');
-    Route::post('/store-employeetype', 'storeEmployeetype')->name('store.employeetype');
-    Route::get('/show-employeetype', 'showEmployeetype')->name('show.employeetype');
-    Route::get('/edit-employeetype', 'editEmployeetype')->name('edit.employeetype');
-});
-Route::middleware('auth')->controller(DesignationController::class)->prefix('/hr')->group(function () {
-    Route::get('/designation', 'allDesignation')->name('designations');
-    Route::get('/add-designation', 'addDesignation')->name('add.designation');
-    Route::get('/show-designation', 'showDesignation')->name('show.designation');
-    Route::get('/edit-designation', 'editDesignation')->name('edit.designation');
-});
-Route::middleware('auth')->controller(WorkingShiftController::class)->prefix('/hr')->group(function () {
-    Route::get('/working-shift', 'allWorkingShifts')->name('workingshifts');
-    Route::get('/add-working-shift', 'addWorkingShift')->name('add.workingshift');
-    Route::get('/show-working-shift', 'showWorkingShift')->name('show.workingshift');
-    Route::get('/edit-working-shift', 'editWorkingShift')->name('edit.workingshift');
-});
-Route::middleware('auth')->controller(EmployeeController::class)->prefix('/hr')->group(function () {
-    Route::get('/employees', 'allEmployees')->name('all.employees');
-    Route::get('/add-employee', 'addEmployee')->name('add.employee');
-    Route::get('/show-employee', 'showEmployee')->name('show.employee');
-    Route::get('/edit-employee', 'editEmployee')->name('edit.employee');
-    Route::get('/search-employee', 'searchEmployee')->name('search.employee');
-    Route::get('/employee-id', 'employeeID')->name('id.employee');
-    Route::get('/export-employee', 'exportEmployee')->name('export.employee');
+    // DESIGNATION IN HR module
+    Route::get('/alldesignation', 'AllDesignation')->name('alldesignation');
+    Route::get('/adddesignation', 'AddDesignation')->name('adddesignation');
+
+
+    // WORKINGSHIFT IN HR module
+    Route::get('/allworkingshift', 'Allworkingshift')->name('allworkingshift');
+    Route::get('/addworkingshift', 'Addworkingshift')->name('addworkingshift');
+
+
+    // AddEmployeSidebar IN HR module
+    Route::get('/newemployeadd', 'AddEmployeSidebar')->name('newemployeadd');
+    Route::get('/manageemploye', 'ManageEmploye')->name('manageemploye');
+    Route::get('/employesearch', 'EmployeSearch')->name('employesearch');
+    Route::get('/employeidcard', 'EmployeIDcardSearch')->name('employeidcard');
+    Route::get('/employeattendance', 'EmployeAttendance')->name('employeattendance');
 });
 
+Route::controller(ExamsettingController::class)->prefix('/exam')->group(function () {
 
-Route::middleware('auth')->controller(ExamsettingController::class)->prefix('/exam')->group(function () {
-
+    // EXAM GRADE POINT
     Route::get('/managegrade', 'ManageGrade')->name('managegrade');
     Route::get('/addgrade', 'AddGrade')->name('addgrade');
+    Route::POST('/insertgrade', 'InsertGrade')->name('insertgrade');
+    Route::get('/gradeedit/{id}', 'GradeEdit')->name('gradeedit');
+    Route::POST('/updategrade/{id}', 'UpdateGrade')->name('updategrade');
+    Route::get('/gradedelete/{id}', 'GradeDelete')->name('gradedelete');
+    Route::get('/gradeshow/{id}', 'GradeShow')->name('gradeshow');
 
     // EXAM TERMS
     Route::get('/manageexamterms', 'Manageexamterms')->name('manageexamterms');
@@ -210,23 +214,25 @@ Route::middleware('auth')->controller(ExamsettingController::class)->prefix('/ex
     Route::get('/manageexamworkingdays', 'Manageexamworkingdays')->name('manageexamworkingdays');
     Route::get('/addexamworkingdays', 'Addexamworkingdays')->name('addexamworkingdays');
 
+    
     // EXAM WORKINGDAYS
     Route::get('/resultsetting', 'ResultSetting')->name('resultsetting');
-
+    
     // EXAM ExamEligibility
     Route::get('/exameligibility', 'ExamEligibility')->name('exameligibility');
-
+ 
     // EXAM SeatPlan
     Route::get('/examseatplan', 'ExamSeatplan')->name('examseatplan');
-
+   
     // EXAM Attendance
     Route::get('examattendance', 'ExamAttendance')->name('examattendance');
-
+   
     // EXAM AttendanceSUbject
     Route::get('examattensubject', 'ExamattenSubject')->name('examattensubject');
 
     // EXAM AttendanceSUbject
     Route::get('examattenexam', 'ExamattenExam')->name('examattenexam');
+
 });
 
 
@@ -248,4 +254,3 @@ require __DIR__ . '/student_account.php';
 require __DIR__ . '/learning_module.php';
 require __DIR__ . '/finance_module.php';
 require __DIR__ . '/student_account.php';
-require __DIR__ . '/website_module.php';

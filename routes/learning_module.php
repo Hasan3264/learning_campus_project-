@@ -3,7 +3,7 @@
 use App\Http\Controllers\backend\learning_module\LearningController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware('auth')->controller(LearningController::class)->prefix('/learning')->group(function(){
+Route::controller(LearningController::class)->prefix('/learning')->group(function(){
 
 
     //////////////////////// Start Live Class ////////////////

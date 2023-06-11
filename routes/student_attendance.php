@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 
 ///student attendance
-Route::middleware('auth')->controller(StudentAttendanceController::class)->prefix('/student')->group(function(){
+Route::controller(StudentAttendanceController::class)->prefix('/student')->group(function(){
 
     Route::get('/today/attendance','TodayAttendance')->name('today_attendance');
 

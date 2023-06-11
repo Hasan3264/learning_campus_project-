@@ -6,25 +6,22 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::middleware('auth')->controller(LeaveController::class)->prefix('/leave')->group(function(){
+Route::controller(LeaveController::class)->prefix('/leave')->group(function(){
 
 
     //////////////////////// Start Leave Type////////////////
-
-
-
 
  Route::get('/type','LeaveType')->name('leave_type');
 
  Route::get('/type/add','AddLeaveType')->name('add_leave_type');
 
- Route::post('/type/store','StoreLeaveType')->name('store_leave_type');
+ Route::get('/type/store','StoreLeaveType')->name('store_leave_type');
 
- Route::get('/type/edit/{id}','EditLeaveType')->name('edit_leave_type');
+ Route::get('/type/edit','EditLeaveType')->name('edit_leave_type');
 
  Route::get('/type/update','UpdateLeaveType')->name('update_leave_type');
 
- Route::get('/type/view/{id}','ViewLeaveType')->name('view_leave_type');
+ Route::get('/type/view','ViewLeaveType')->name('view_leave_type');
 
  Route::get('/type/delete','DeleteLeaveType')->name('delete_leave_type');
 

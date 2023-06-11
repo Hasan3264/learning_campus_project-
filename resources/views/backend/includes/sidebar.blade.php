@@ -236,12 +236,13 @@
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-
+<<<<<<< HEAD
                                     <a class="u-sidebar-nav-menu__link" href="">
                                         <span class="u-sidebar-nav-menu__item-title">Manual Attendence</span>
-
+=======
                                     <a class="u-sidebar-nav-menu__link" href="{{ route('manual_attendance')}}">
                                         <span class="u-sidebar-nav-menu__item-title">Manual Attendance</span>
+>>>>>>> 794520b6a031158521ea0bf582bf9423919c8260
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
@@ -324,42 +325,42 @@
                             <ul id="marks" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
                                 style="display: none;">
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employeetype') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employetype') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee Type</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('designations') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('alldesignation') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Designation</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('workingshifts') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('allworkingshift') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Working Shift</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('add.employee') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('newemployeadd') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Add Employee</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('all.employees') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manageemploye') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Employee List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('search.employee') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employesearch') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's Search</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('search.employee') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employeidcard') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's ID Card</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('export.employee') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employeattendance') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's Export(Att.)</span>
                                     </a>
                                 </li>
@@ -815,72 +816,72 @@
                             <ul id="website" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
                                 style="display: none;">
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('slide_show') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="#">
                                         <span class="u-sidebar-nav-menu__item-title">SlideShow List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('message_corner') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="">
                                         <span class="u-sidebar-nav-menu__item-title">Message Corner</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_menu') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="">
                                         <span class="u-sidebar-nav-menu__item-title">All Menu List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_content') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">All Content List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('breaking_news') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">Breaking News</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_album') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">All Album List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_gallery') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">All Gallery List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_news') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">All News List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_event') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">All Events List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_notice') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">All Notice List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_career') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">All Career List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('board_result') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">Board Result List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_link') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">Usefull Link List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manage_social_media') }}">
+                                    <a class="u-sidebar-nav-menu__link">
                                         <span class="u-sidebar-nav-menu__item-title">Social Media List</span>
                                     </a>
                                 </li>

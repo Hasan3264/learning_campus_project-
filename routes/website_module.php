@@ -6,7 +6,8 @@ use App\Http\Controllers\backend\WebsiteModule\WebsiteModuleThreeController;
 use App\Http\Controllers\backend\WebsiteModule\WebsiteModuleFourController;
 use App\Http\Controllers\backend\WebsiteModule\WebsiteModuleFiveController;
 use Illuminate\Support\Facades\Route;
-Route::middleware('auth')->group(function () {
+use Spatie\Permission\Contracts\Role;
+
 // Route of WebsiteModuleOneController
 Route::get('/slideshow/list', [WebsiteModuleOneController::class, 'slideShow'])->name('slide_show');
 Route::get('/message/corner', [WebsiteModuleOneController::class, 'messageCorner'])->name('message_corner');
@@ -54,7 +55,6 @@ Route::get('/manage/social_media', [WebsiteModuleFiveController::class, 'manageS
 Route::get('/add/link', [WebsiteModuleFiveController::class, 'addLink'])->name('manage_link');
 Route::get('/add/social_media', [WebsiteModuleFiveController::class, 'addSocialMedia'])->name('add_social_media');
 
-});
 ?>
 
 

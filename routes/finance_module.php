@@ -4,7 +4,7 @@ use App\Http\Controllers\backend\finance_module\AccountHeadController;
 use Illuminate\Support\Facades\Route;
 
 
-Route::middleware('auth')->controller(AccountHeadController::class)->prefix('/account')->group(function(){
+Route::controller(AccountHeadController::class)->prefix('/account')->group(function(){
 
     Route::get('/head','AccountHead')->name('account_head');
 
