@@ -21,9 +21,9 @@ class AcademicHolidayController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'type' => ['required', 'unique:academic_holidays'],
+            'type' => ['required'],
             'title' => ['required', 'unique:academic_holidays'],
-            'status' => ['required', 'unique:academic_holidays'],
+            'status' => ['required'],
         ]);
         AcademicHoliday::insert([
             'type' => $request->type,
@@ -46,6 +46,11 @@ class AcademicHolidayController extends Controller
     }
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'type' => ['required'],
+            'title' => ['required', 'unique:academic_holidays'],
+            'status' => ['required'],
+        ]);
         $holiday = AcademicHoliday::find($id);
         $holiday->type = $request->input("type");
         $holiday->title = $request->input("title");

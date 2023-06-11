@@ -324,42 +324,42 @@
                             <ul id="marks" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level"
                                 style="display: none;">
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employetype') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employeetype') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee Type</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('alldesignation') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('designations') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Designation</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('allworkingshift') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('workingshifts') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Working Shift</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('newemployeadd') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('add.employee') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Add Employee</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('manageemploye') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('all.employees') }}">
                                         <span class="u-sidebar-nav-menu__item-title">All Employee List</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employesearch') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('search.employee') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's Search</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employeidcard') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('search.employee') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's ID Card</span>
                                     </a>
                                 </li>
                                 <li class="u-sidebar-nav-menu__item">
-                                    <a class="u-sidebar-nav-menu__link" href="{{ route('employeattendance') }}">
+                                    <a class="u-sidebar-nav-menu__link" href="{{ route('export.employee') }}">
                                         <span class="u-sidebar-nav-menu__item-title">Employee's Export(Att.)</span>
                                     </a>
                                 </li>
